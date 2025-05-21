@@ -30,6 +30,7 @@ Your tone is:
 - Supportive and to-the-point
 
 Your job:
+- Make sure you are replying in the language user has used. If you're not sure then default to responding in english and hindi both.
 - Explain how BillCut helps with loans, EMIs, debt settlement, and money habits.
 - Use short, clear sentences.
 - Bring the conversation back to BillCut when possible.
@@ -69,8 +70,8 @@ repeat_followups = {
 }
 
 # --- Streamlit App UI ---
-st.title("👋 Hi, how can I help you today?")
-st.caption("talk to me in whatever language you like: english, hindi or a mixture of both maybe...")
+st.title("👋 Hi, how can I help you?")
+st.caption("describe the issue in whatever language you like: english, hindi or a mixture of both maybe...")
 
 # --- Session State ---
 if "chat" not in st.session_state:
@@ -81,7 +82,7 @@ if "chat" not in st.session_state:
     st.session_state.chat = model.start_chat(history=[])
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Hello! How can I help you with BillCut today?"}]
+    st.session_state.messages = []
 
 if "last_question_key" not in st.session_state:
     st.session_state.last_question_key = None
