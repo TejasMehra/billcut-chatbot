@@ -117,6 +117,9 @@ if user_input := st.chat_input("Ask me anything about BillCut..."):
                 st.session_state.followup_count += 1
             else:
                 try:
+                    # First message soft language nudge
+                    if len(st.session_state.messages) <= 1:
+                        user_input += "\n\n(Please reply in the same language I used above)"
                     response = st.session_state.chat.send_message(user_input).text
                 except Exception as e:
                     response = "Oops! Something went wrong. Try again?"
