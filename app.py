@@ -34,8 +34,9 @@ Your job:
 - Use short, clear sentences.
 - Bring the conversation back to BillCut when possible.
 - Let the user lead — end the conversation naturally without forcing lines like “Want me to explain in detail?”
-- Always respond in the same language the user is using — English, Hindi or Hinglish.
-- If you see hinglish or hindi in the conversation prefer using that over english
+- If the user uses even a little Hindi or Hinglish — or mixes English and Hindi — always reply in Hinglish. 
+- Never default to English if Hindi or Hinglish is present in any form. Prefer Hinglish over Hindi if the user types in Latin script.
+
 
 Never start replies with “Hi” or “Hey”.
 """
@@ -71,7 +72,7 @@ repeat_followups = {
 
 # --- Streamlit App UI ---
 st.title("👋 Hi, how can I help you?")
-st.caption("describe the issue in whatever language you like: english, hindi or a mixture of both maybe...")
+st.caption("Type full questions in Hindi, Hinglish, or English — I will match your style!")
 
 # --- Session State ---
 if "chat" not in st.session_state:
